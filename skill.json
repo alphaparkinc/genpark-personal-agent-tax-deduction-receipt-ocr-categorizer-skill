@@ -1,0 +1,32 @@
+{
+  "name": "genpark-personal-agent-tax-deduction-receipt-ocr-categorizer-skill",
+  "version": "1.0.0",
+  "description": "Personal Agent Tax Deduction & Freelancer Expense Categorizer. Audits bank transactions and receipts against IRS Schedule C expense categories (home office, software, mileage, meals), calculates tax liability deductions, and isolates audit risk flags.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "categorize_deductible_expenses",
+      "description": "Analyze expense items against IRS Schedule C tax deduction rules and estimate tax savings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expenses": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Expense list with merchant, amount_usd, description, date."
+          },
+          "marginal_tax_bracket_pct": {
+            "type": "number",
+            "description": "User marginal tax rate (e.g. 24.0 or 32.0)."
+          }
+        },
+        "required": [
+          "expenses"
+        ]
+      }
+    }
+  ]
+}
